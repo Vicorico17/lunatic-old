@@ -43,7 +43,7 @@
     "webpack": "^5.72.0"
   },
   "scripts": {
-    "build": "react-app-rewired build",
+    "build": "cross-env CI=false react-app-rewired build",
     "start": "react-app-rewired start",
     "test": "react-app-rewired test --colors",
     "coverage": "react-app-rewired test --coverage",
