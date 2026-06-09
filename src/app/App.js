@@ -1,11 +1,18 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import OnePageApp from "./OnePageApp";
 import Privacy from "../components/Privacy";
 import Terms from "../components/Terms";
-import Whitepaper from "../components/Whitepaper";
-import pdfgen from '../assets/whitepaper/Wp_alpha.pdf'
+
+
+function PdfRedirect({pdf}) {
+    useEffect(() => {
+        window.location.replace(pdf);
+    }, [pdf]);
+
+    return null;
+}
 
 
 function App() {
@@ -16,7 +23,14 @@ function App() {
                 <Route path="/" element={<OnePageApp/>}/>
                 <Route path='/privacy' element={<Privacy/>}/>
                 <Route path='/terms' element={<Terms/>}/>
-                <Route path='/white' element={<Whitepaper pdf={pdfgen}/>}/>
+                <Route
+                    path='/white'
+                    element={<PdfRedirect pdf='/whitepapers/lunatic-clubhouse-whitepaper.pdf'/>}
+                />
+                <Route
+                    path='/wastelands-of-mars-whitepaper'
+                    element={<PdfRedirect pdf='/whitepapers/wastelands-of-mars-whitepaper.pdf'/>}
+                />
             </Routes>
         </BrowserRouter>
     );

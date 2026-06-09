@@ -1,9 +1,15 @@
 import React from "react";
 import Video1 from '../assets/intro_video.mp4';
-import {Link} from 'react-router-dom';
 
 
 export default function Home() {
+    const lunaticWhitepaper = '/whitepapers/lunatic-clubhouse-whitepaper.pdf';
+    const wastelandsWhitepaper = '/whitepapers/wastelands-of-mars-whitepaper.pdf';
+
+    function handleMintClick() {
+        alert("obviously you can't mint this anymore");
+    }
+
     return (
         <div className="home">
             <div className='video-wrapper'>
@@ -12,17 +18,17 @@ export default function Home() {
                 </video>
             </div>
             <div className='button-container'>
-                <a href="https://www.messier.art/mint/terra186fsgc6rgw96evzd7zmsfllj9cf66mlf5qfazq"
-                   style={{textDecoration: 'none'}}>
-                    <button className='button-64' role='button'>
-                        <span className="text">Mint now</span>
-                    </button>
-                </a>
-                <Link to='/white' style={{textDecoration: 'none'}}>
-                    <button className='button-64' role='button'>
+                <button className='button-64' type='button' onClick={handleMintClick}>
+                    <span className="text">Mint now</span>
+                </button>
+                <div className='whitepaper-buttons'>
+                    <a className='button-64' href={lunaticWhitepaper} target='_blank' rel='noreferrer'>
                         <span className="text">Whitepaper</span>
-                    </button>
-                </Link>
+                    </a>
+                    <a className='button-64 button-64--wide' href={wastelandsWhitepaper} target='_blank' rel='noreferrer'>
+                        <span className="text">Wastelands of Mars Whitepaper</span>
+                    </a>
+                </div>
             </div>
         </div>
     );
